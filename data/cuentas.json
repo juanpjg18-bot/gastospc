@@ -1,1 +1,10 @@
-[]
+[
+  {
+    "id": "b8a89082-e48f-4780-9e63-55337199694d",
+    "nombre": "Alquiler",
+    "monto": 220000.0,
+    "dia_vencimiento": 10,
+    "categoria": "Vivienda",
+    "activa": true
+  }
+]
