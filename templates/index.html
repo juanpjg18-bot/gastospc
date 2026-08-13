@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mis Gastos</title>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="topbar">
+  <h1>Mis Gastos</h1>
+  <nav class="tabs">
+    <button class="tab-btn is-active" data-tab="resumen">Resumen</button>
+    <button class="tab-btn" data-tab="gastos">Gastos</button>
+    <button class="tab-btn" data-tab="cuentas">Cuentas fijas</button>
+  </nav>
+</header>
+
+<main>
+  <!-- RESUMEN -->
+  <section id="tab-resumen" class="tab-panel is-active">
+    <div class="mes-selector">
+      <button id="mes-prev" aria-label="Mes anterior">‹</button>
+      <input type="month" id="mes-input">
+      <button id="mes-next" aria-label="Mes siguiente">›</button>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-tile">
+        <span class="stat-label">Necesitás para tus cuentas este mes</span>
+        <span class="stat-value" id="stat-cuentas">$0</span>
+      </div>
+      <div class="stat-tile">
+        <span class="stat-label">Gastado en el mes</span>
+        <span class="stat-value" id="stat-gastado">$0</span>
+      </div>
+    </div>
+
+    <h2>Gastos por categoría</h2>
+    <div id="categoria-breakdown" class="breakdown"></div>
+
+    <h2>Cuentas fijas activas</h2>
+    <ul id="resumen-cuentas" class="cuentas-list"></ul>
+  </section>
+
+  <!-- GASTOS -->
+  <section id="tab-gastos" class="tab-panel">
+    <form id="form-gasto" class="card-form">
+      <h2>Agregar gasto</h2>
+      <label>Fecha
+        <input type="date" name="fecha" required>
+      </label>
+      <label>Categoría
+        <input type="text" name="categoria" list="categorias" placeholder="Alimentación" required>
+        <datalist id="categorias">
+          <option value="Vivienda">
+          <option value="Servicios">
+          <option value="Alimentación">
+          <option value="Transporte">
+          <option value="Salud">
+          <option value="Entretenimiento">
+          <option value="Tarjeta de crédito">
+          <option value="Otros">
+        </datalist>
+      </label>
+      <label>Monto
+        <input type="number" name="monto" min="0.01" step="0.01" required>
+      </label>
+      <label>Descripción
+        <input type="text" name="descripcion" placeholder="opcional">
+      </label>
+      <button type="submit">Guardar</button>
+    </form>
+
+    <h2>Gastos de <span id="gastos-mes-label"></span></h2>
+    <ul id="gastos-list" class="gastos-list"></ul>
+  </section>
+
+  <!-- CUENTAS FIJAS -->
+  <section id="tab-cuentas" class="tab-panel">
+    <form id="form-cuenta" class="card-form">
+      <h2>Agregar cuenta fija</h2>
+      <label>Nombre
+        <input type="text" name="nombre" placeholder="Alquiler" required>
+      </label>
+      <label>Categoría
+        <input type="text" name="categoria" list="categorias" placeholder="Vivienda" required>
+      </label>
+      <label>Monto mensual
+        <input type="number" name="monto" min="0.01" step="0.01" required>
+      </label>
+      <label>Día de vencimiento
+        <input type="number" name="dia_vencimiento" min="1" max="31" value="1" required>
+      </label>
+      <button type="submit">Guardar</button>
+    </form>
+
+    <h2>Todas las cuentas</h2>
+    <ul id="cuentas-list" class="cuentas-list"></ul>
+  </section>
+</main>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
