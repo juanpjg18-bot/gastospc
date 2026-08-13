@@ -1,0 +1,5 @@
+{
+  "twilio_auth_token": "tu_auth_token_de_twilio",
+  "public_base_url": "https://tu-subdominio.ngrok-free.app",
+  "whatsapp_allowed_from": ["whatsapp:+549XXXXXXXXXX"]
+}
